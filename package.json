@@ -1,0 +1,27 @@
+{
+  "name": "merlin-extend",
+  "version": "0.0.1",
+  "description": "Extensible Merlin API",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/npm-ml/merlin-extend.git"
+  },
+  "config": {},
+  "keywords": [
+    "reason"
+  ],
+  "author": "frederic.bour",
+  "license": "MIT",
+  "homepage": "https://github.com/npm-ml/merlin-extend",
+  "personal-workflow-for-committing-force-pushing": "git add package.json && git commit --amend --no-edit && git tag -d npm-0.0.1 && git tag npm-0.0.1 && git push -f upstream HEAD:create0_0_1_with_packageJson && git push -f upstream --tags",
+  "dependencies": {
+    "dependency-env": "https://github.com/npm-ml/dependency-env.git",
+    "ocamlfind": "https://github.com/npm-opam/ocamlfind",
+    "nopam": "https://github.com/yunxing/nopam",
+    "ocaml": "https://github.com/npm-opam/ocaml.git#npm-4.02.3"
+  },
+  "scripts": {
+    "postinstall": "eval $(dependencyEnv) && nopam && make && make install",
+    "clean": "eval $(dependencyEnv) && make uninstall && make clean"
+  }
+}
